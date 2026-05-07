@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="floating-hearts" id="hearts-container"></div>
+
+    <!-- A) Password Screen -->
+    <section class="screen active" id="screen-password">
+        <div class="content-box">
+            <div class="lock-icon">🔒</div>
+            <h2>اكتب الباسورد يا حبيبي</h2>
+            <p class="hint">( الباسورد هو كلمة love )</p>
+            <input type="password" id="password-input" placeholder="اكتب هنا...">
+            <button id="password-btn" class="btn-primary">افتح</button>
+            <p id="password-error" class="error-msg"></p>
+        </div>
+    </section>
+
+    <!-- B) Welcome Screen -->
+    <section class="screen" id="screen-welcome">
+        <div class="content-box">
+            <div class="heart-beat">❤️</div>
+            <h1>يا أجمل حاجة في حياتي ❤️</h1>
+            <p class="subtitle">ده موقع صغير كده عشان أقولك إني بحبك</p>
+            <button class="btn-primary next-btn hidden" data-target="screen-letter">التالي</button>
+        </div>
+    </section>
+
+    <!-- C) Love Letter Screen -->
+    <section class="screen" id="screen-letter">
+        <div class="content-box letter-box">
+            <h2>رسالة من قلبي</h2>
+            <div class="typing-container">
+                <p id="typing-text"></p>
+            </div>
+            <button class="btn-primary next-btn hidden" data-target="screen-videos">يلا نكمل ❤️</button>
+        </div>
+    </section>
+
+    <!-- D) Video Memories Screen -->
+    <section class="screen" id="screen-videos">
+        <div class="content-box video-box">
+            <h2>ذكرياتنا الجميلة</h2>
+            <div class="video-wrapper">
+                <video id="memory-video" controls playsinline preload="metadata">
+                    <source src="" type="video/mp4">
+                    المتصفح مش بيدعم الفيديو
+                </video>
+            </div>
+            <p id="video-title" class="media-title">فيديو 1</p>
+            <div class="nav-buttons-row">
+                <button class="btn-nav" id="video-prev">← السابق</button>
+                <button class="btn-nav" id="video-next">التالي →</button>
+            </div>
+            <button class="btn-primary next-btn hidden" data-target="screen-gallery">نشوف الصور بقى</button>
+        </div>
+    </section>
+
+    <!-- E) Photo Gallery Screen -->
+    <section class="screen" id="screen-gallery">
+        <div class="content-box gallery-box">
+            <h2>أحلى لحظات معاك</h2>
+            <div class="photo-wrapper">
+                <img id="gallery-img" src="" alt="memory photo">
+            </div>
+            <p id="photo-title" class="media-title">صورة 1</p>
+            <div class="nav-buttons-row">
+                <button class="btn-nav" id="photo-prev">← السابق</button>
+                <button class="btn-nav" id="photo-next">التالي →</button>
+            </div>
+            <button class="btn-primary next-btn hidden" data-target="screen-counter">نشوف حاجة حلوة</button>
+        </div>
+    </section>
+
+    <!-- F) Love Counter Screen -->
+    <section class="screen" id="screen-counter">
+        <div class="content-box counter-box">
+            <h2>❤️ بنحب بعض من</h2>
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <span id="days" class="counter-num">0</span>
+                    <span class="counter-label">يوم</span>
+                </div>
+                <div class="counter-item">
+                    <span id="hours" class="counter-num">0</span>
+                    <span class="counter-label">ساعة</span>
+                </div>
+                <div class="counter-item">
+                    <span id="minutes" class="counter-num">0</span>
+                    <span class="counter-label">دقيقة</span>
+                </div>
+                <div class="counter-item">
+                    <span id="seconds" class="counter-num">0</span>
+                    <span class="counter-label">ثانية</span>
+                </div>
+            </div>
+            <div class="anniversary-box">
+                <p>🎉 فاضل على ذكرى حبنا السنة الجاية:</p>
+                <div class="anniversary-grid">
+                    <div class="counter-item">
+                        <span id="ann-days" class="counter-num">0</span>
+                        <span class="counter-label">يوم</span>
+                    </div>
+                    <div class="counter-item">
+                        <span id="ann-hours" class="counter-num">0</span>
+                        <span class="counter-label">ساعة</span>
+                    </div>
+                    <div class="counter-item">
+                        <span id="ann-minutes" class="counter-num">0</span>
+                        <span class="counter-label">دقيقة</span>
+                    </div>
+                    <div class="counter-item">
+                        <span id="ann-seconds" class="counter-num">0</span>
+                        <span class="counter-label">ثانية</span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-primary next-btn hidden" data-target="screen-envelope">افتح الظرف</button>
+        </div>
+    </section>
+
+    <!-- G) Envelope Screen -->
+    <section class="screen" id="screen-envelope">
+        <div class="content-box envelope-box">
+            <h2>ظرف فيه سر حلو</h2>
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="letter-content" id="letter-content">
+                        <p>يا حبيب قلبي ❤️</p>
+                        <p>كل يوم بمر، بحبك أكتر</p>
+                        <p>أنتِ نصي التاني</p>
+                        <p>وبتكمليني</p>
+                        <p>مش عارف أتخيل يوم من غيرك</p>
+                        <p>بحبك أكتر من أي حاجة في الدنيا</p>
+                        <p>❤️ Forever Yours ❤️</p>
+                    </div>
+                </div>
+            </div>
+            <p id="envelope-hint" class="hint-text">اضغط على الظرف لفتحه</p>
+            <button class="btn-primary next-btn hidden" data-target="screen-timeline">نشوف خط حياتنا</button>
+        </div>
+    </section>
+
+    <!-- H) Timeline Screen -->
+    <section class="screen" id="screen-timeline">
+        <div class="content-box timeline-box">
+            <h2>خط حياتنا مع بعض</h2>
+            <div class="timeline" id="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>أول مرة شوفناك</h3>
+                        <p>من أحلى الأيام في حياتي، لما عيني وقعت عليكي</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>أول خروجة</h3>
+                        <p>مش هنسى يومها أبداً، كنتِ أحلى حاجة شوفتها</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>أول مرة قولت بحبك</h3>
+                        <p>قلبي كان بيدق بسرعة، ولسه بيدق كده كل يوم</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>بداية حكايتنا</h3>
+                        <p>22 نوفمبر 2024 — اليوم اللي غيّر حياتي</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>ولسه الحكاية مستمرة...</h3>
+                        <p>كل يوم جديد معاكِ بيكون أحلى من اللي قبله</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-primary next-btn hidden" data-target="screen-final">الشاشة الأخيرة</button>
+        </div>
+    </section>
+
+    <!-- I) Final Screen -->
+    <section class="screen" id="screen-final">
+        <div class="stars-bg" id="stars-container"></div>
+        <div class="content-box final-box">
+            <div class="final-heart">❤️</div>
+            <h1>بحبك</h1>
+            <p class="final-text">من كل قلبي، ومن كل روحي</p>
+            <p class="final-text">أنتِ الدنيا كلها بالنسبة لي</p>
+            <p class="final-text">❤️ Always & Forever ❤️</p>
+            <button class="btn-primary" id="restart-btn"> Replay from beginning </button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
