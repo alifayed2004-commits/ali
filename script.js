@@ -1,12 +1,12 @@
 /* ---------- Config Data ---------- */
 const VIDEOS = [
-    { src: "videos/video1.mp4.mp4", title: "فيديو 1" },
+    { src: "video1.mp4.mp4", title: "فيديو 1" },
     { src: "video2.mp4", title: "فيديو 2" },
     { src: "video3.mp4", title: "فيديو 3" }
 ];
 
 const PHOTOS = [
-    { src: "images/love1.jpeg.jpeg", title: "صورة 1" },
+    { src: "love1.jpeg.jpeg", title: "صورة 1" },
     { src: "", title: "صورة 2" },
     { src: "img3.jpg", title: "صورة 3" }
 ];
